@@ -142,16 +142,14 @@ lhc-canteen/
 │   ├── utils/                      # JWT & password helpers
 │   └── server.js                   # Bootstrap, Helmet, rate-limiter
 ├── frontend/
-│   ├── css/main.css                # CSS custom properties, dark theme
-│   ├── js/
-│   │   ├── auth-guard.js           # Execution-blocking head script
-│   │   └── main.js                 # SPA layout engine, SSE client
-│   ├── student/                    # 7 HTML pages
-│   ├── staff/                      # 5 HTML pages
-│   └── index.html                  # Gateway redirect
-└── extras/
-    ├── selenium/                   # 7 automated UI test scripts
-    └── interview_questions_answers.md
+    ├── css/main.css                # CSS custom properties, dark theme
+    ├── js/
+    │   ├── auth-guard.js           # Execution-blocking head script
+    │   └── main.js                 # SPA layout engine, SSE client
+    ├── student/                    # 7 HTML pages
+    ├── staff/                      # 5 HTML pages
+    └── index.html                  # Gateway redirect
+
 ```
 
 ---
