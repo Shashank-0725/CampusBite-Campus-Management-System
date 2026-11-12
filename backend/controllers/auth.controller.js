@@ -11,6 +11,15 @@ async function register(req, res) {
       return res.status(400).json({ message: 'Missing required fields' });
     }
 
+    // Password strength validation
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])\S{8,}$/;
+
+    if (!passwordRegex.test(password)) {
+      return res.status(400).json({
+        message: 'Password must be at least 8 characters and contain an uppercase letter, lowercase letter, number, and special character.'
+      });
+    }
+
     const existing = await User.findOne({
       $or: [{ email }, { usnOrStaffId }],
     });
