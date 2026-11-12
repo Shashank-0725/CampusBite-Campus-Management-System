@@ -14,9 +14,48 @@
   Students pre-order from their phones. Kitchen staff get instant order tickets. No more waiting in line.
 </p>
 
-<p align="center">
-  <a href="https://campusbite-g03i.onrender.com"><strong>🌐 Live Demo</strong></a> ·
-</p>
+## 🌐 Live Demo On Render
+
+**[🚀 Launch CampusBite](https://campusbite-g03i.onrender.com)**
+
+Explore the complete campus canteen platform through the student and staff portals.
+
+---
+
+## 🔑 Demo Credentials
+
+Use the following credentials to explore CampusBite.
+
+### 🎓 Student Portal
+
+| Field | Credentials |
+|:---|:---|
+| **Email** | `studentuser@gmail.com` |
+| **Password** | `Student@12345` |
+
+**Features to explore:**
+- Browse the menu and food categories
+- Add items to cart and place orders
+- Track order status in real time
+- View order history and manage your profile
+
+### 👨‍🍳 Staff Portal
+
+| Field | Credentials |
+|:---|:---|
+| **Email** | `staffuser@gmail.com` |
+| **Password** | `Staff@12345` |
+
+**Features to explore:**
+- Monitor incoming orders through the live KOT dashboard
+- Update order status (Pending → Preparing → Ready → Completed)
+- Manage menu items and availability
+- Manage inventory
+- View order statistics and revenue analytics
+
+---
+
+> **Note:** These credentials are provided for demonstration and evaluation purposes. All data in the demo environment is intended for testing.
 
 ---
 
