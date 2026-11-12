@@ -28,7 +28,7 @@ async function register(req, res) {
       email,
       mobile: mobile || '',
       passwordHash,
-      role: role || 'student', // for staff/admin you will control via separate panel
+      role: 'student', // public login for students
     });
 
     const token = signToken({ id: user._id, role: user.role });
@@ -63,12 +63,12 @@ async function login(req, res) {
     });
 
     if (!user) {
-      return res.status(401).json({ message: 'Invalid credentials' });
+      return res.status(401).json({ message: 'Email Id not registered' });
     }
 
     const isMatch = await comparePassword(password, user.passwordHash);
     if (!isMatch) {
-      return res.status(401).json({ message: 'Invalid credentials' });
+      return res.status(401).json({ message: 'Invalid Password' });
     }
 
     const token = signToken({ id: user._id, role: user.role });

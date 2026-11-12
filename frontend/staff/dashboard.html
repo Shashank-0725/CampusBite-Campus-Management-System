@@ -1,33 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Staff Dashboard - BVB Canteen</title>
-  <link rel="stylesheet" href="main.css">
+  <title>Staff Dashboard - CampusBite n</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/auth-guard.js"></script>
 </head>
-<body>
-  <nav class="navbar">
-    <div class="brand">STAFF DASHBOARD</div>
-    <button class="nav-toggle" onclick="openNav()">☰</button>
-    <div class="nav-links">
-      <a href="staff-dashboard.html">DASHBOARD</a>
-      <a href="staff-orders.html">ORDERS</a>
-      <a href="manage-items.html">MANAGE ITEMS</a>
-      <a href="staff-stats.html">STATISTICS</a>
-      <a href="staff-login.html" onclick="logout()">LOGOUT</a>
-    </div>
-  </nav>
 
-  <div class="side-nav" id="sideNav">
-    <button class="close-nav" onclick="closeNav()">×</button>
-    <a href="staff-dashboard.html">DASHBOARD</a>
-    <a href="staff-orders.html">ORDERS</a>
-    <a href="manage-items.html">MANAGE ITEMS</a>
-    <a href="staff-stats.html">STATISTICS</a>
-    <a href="staff-login.html" onclick="logout()">LOGOUT</a>
-  </div>
-  <div class="overlay" id="overlay" onclick="closeNav()"></div>
+<body>
+  <!-- SHARED NAVBAR -->
+  <div id="navbar-placeholder"></div>
 
   <div class="hero">
     <h1>STAFF DASHBOARD</h1>
@@ -42,7 +26,7 @@
         <div class="card-body">
           <h3>MANAGE MENU</h3>
           <p>ADD, EDIT, OR DELETE MENU ITEMS</p>
-          <a href="manage-items.html" class="btn btn-add">MANAGE</a>
+          <a href="/staff/manage-items.html" class="btn btn-add">MANAGE</a>
         </div>
       </div>
 
@@ -51,7 +35,7 @@
         <div class="card-body">
           <h3>VIEW ORDERS</h3>
           <p>TRACK PENDING & COMPLETED ORDERS</p>
-          <a href="staff-orders.html" class="btn btn-add">VIEW ORDERS</a>
+          <a href="/staff/orders.html" class="btn btn-add">VIEW ORDERS</a>
         </div>
       </div>
 
@@ -60,21 +44,21 @@
         <div class="card-body">
           <h3>SALES REPORT</h3>
           <p>VIEW DAILY SALES & ANALYTICS</p>
-          <a href="staff-stats.html" class="btn btn-add">VIEW REPORT</a>
+          <a href="/staff/stats.html" class="btn btn-add">VIEW REPORT</a>
         </div>
       </div>
     </div>
+  </div>
 
+  <!-- SHARED FOOTER -->
+  <div id="footer-placeholder"></div>
 
-  <footer>
-    © 2025 BVB CANTEEN - STAFF PORTAL
-  </footer>
-
-  <script src="main.js"></script>
+  <script src="/js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       initStaffDashboard();
     });
   </script>
 </body>
+
 </html>

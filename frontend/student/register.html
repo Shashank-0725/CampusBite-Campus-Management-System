@@ -4,32 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register - BVB Canteen</title>
-  <link rel="stylesheet" href="main.css">
+  <title>Register - CampusBite</title>
+  <link rel="stylesheet" href="/css/main.css">
 
   <style>
-    /* ============================================
-   AUTH BACKGROUND (LOGIN & REGISTER)
-   ============================================ */
-
     .auth-wrapper {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-
-      /* Background image + overlay */
       background:
         linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)),
-        url("canteen inside.png");
+        url("/assets/canteen inside.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-
       position: relative;
     }
 
-    /* Blur layer */
     .auth-wrapper::before {
       content: "";
       position: absolute;
@@ -38,13 +30,11 @@
       -webkit-backdrop-filter: blur(2px);
     }
 
-    /* Keep card above blur */
     .auth-card {
       position: relative;
       z-index: 2;
     }
   </style>
-
 </head>
 
 <body>
@@ -84,19 +74,18 @@
         <button type="submit" class="btn-submit">Register</button>
       </form>
       <div class="auth-link">
-        Already have an account? <a href="login.html" style="text-decoration: dashed; color: aqua;">Login</a>
+        Already have an account? <a href="/student/login.html" style="text-decoration: dashed; color: aqua;">Login</a>
       </div>
     </div>
   </div>
 
-  <script src="main.js"></script>
+  <script src="/js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const err = document.getElementById('errorMsg');
       if (err) err.style.display = 'none';
     });
   </script>
-
 </body>
 
 </html>

@@ -7,12 +7,15 @@ const menuItemSchema = new mongoose.Schema(
     category: {
       type: String,
       required: true,
-      enum: ['snacks', 'meals', 'beverages', 'sweets'],
+      enum: ['snacks', 'meals', 'refreshments', 'beverages', 'sweets'],
     },
     price: { type: Number, required: true, min: 0 },
     imageUrl: { type: String, default: '' },
     avgTime: { type: String, default: '10-15 mins' },
+    stockQuantity: { type: Number, default: 10, min: 0 },
     inStock: { type: Boolean, default: true },
+    averageRating: { type: Number, default: 0 },
+    ratingCount: { type: Number, default: 0 },
     createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   },
   { timestamps: true }

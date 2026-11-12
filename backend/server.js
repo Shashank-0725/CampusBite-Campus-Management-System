@@ -1,10 +1,10 @@
-// server.js
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 const { PORT } = require('./config/env');
 const connectDB = require('./config/db');
-
 
 const authRoutes = require('./routes/auth.routes');
 const menuRoutes = require('./routes/menu.routes');
@@ -12,9 +12,50 @@ const orderRoutes = require('./routes/order.routes');
 const statsRoutes = require('./routes/stats.routes');
 const userRoutes = require('./routes/user.routes');
 
+
 const app = express();
 
+
 // Middleware
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: [
+        "'self'",
+        "'unsafe-inline'",          // needed for inline onclick= and <script> init blocks
+        "'unsafe-eval'",            // needed for Chart.js in staff stats
+        "https://cdn.jsdelivr.net"  // chart.js
+      ],
+      scriptSrcAttr: ["'unsafe-inline'"], // onclick= attributes
+      styleSrc: [
+        "'self'",
+        "'unsafe-inline'",          // inline <style> blocks
+        "https://fonts.googleapis.com"
+      ],
+      fontSrc: ["'self'", "https://fonts.gstatic.com"],
+      imgSrc: ["'self'", "data:", "https:", "blob:"],
+      connectSrc: [
+        "'self'"
+      ],
+      mediaSrc: [
+        "'self'",
+        "data:",
+        "https://assets.mixkit.co"  // notification sound
+      ]
+    }
+  }
+}));
+
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,   // 15 minutes
+  max: 100,                   // limit 100
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { message: 'Too many requests from this IP, please try again after 15 minutes.' }
+});
+app.use('/api', apiLimiter);
+
 app.use(cors());
 app.use(express.json());
 
@@ -26,25 +67,16 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/stats', statsRoutes);
 app.use('/api/users', userRoutes);
 
-
 // Health check
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', message: 'BVB Canteen backend running' });
+  res.json({ status: 'ok', message: 'CampusBite backend running' });
 });
 
-// Serve static files from the frontend directory
-// Since server.js is in backend/, we go up one level then into frontend/
-// PRO TIP: Block access to the backend folder itself for security
-app.use('/backend', (req, res) => res.status(403).send('Forbidden'));
 app.use(express.static(path.join(__dirname, '..', 'frontend')));
 
-// Handle SPA-like routing (optional but good)
-// Send index.html for any unknown routes (that aren't /api)
-// FIX: Using '/*' for compatible wildcard in Node 22/Express
-app.get('/*', (req, res) => {
-  if (!req.path.startsWith('/api')) {
-    res.sendFile(path.join(__dirname, '..', 'frontend', 'index.html'));
-  }
+// Root redirect to student home
+app.get('/', (req, res) => {
+  res.redirect('/student/index.html');
 });
 
 // Start server

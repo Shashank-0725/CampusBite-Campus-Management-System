@@ -1,4 +1,3 @@
-// config/db.js
 const mongoose = require('mongoose');
 const { MONGODB_URI } = require('./env');
 

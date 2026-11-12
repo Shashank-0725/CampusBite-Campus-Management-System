@@ -1,33 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Staff Orders - BVB Canteen</title>
-  <link rel="stylesheet" href="main.css">
+  <title>Staff Orders - CampusBite</title>
+  <script src="/js/auth-guard.js"></script>
+  <link rel="stylesheet" href="/css/main.css">
 </head>
-<body>
-  <nav class="navbar">
-    <div class="brand">STAFF ORDERS</div>
-    <button class="nav-toggle" onclick="openNav()">☰</button>
-    <div class="nav-links">
-      <a href="staff-dashboard.html">DASHBOARD</a>
-      <a href="staff-orders.html">ORDERS</a>
-      <a href="manage-items.html">MANAGE ITEMS</a>
-      <a href="staff-stats.html">STATISTICS</a>
-      <a href="staff-login.html" onclick="logout()">LOGOUT</a>
-    </div>
-  </nav>
 
-  <div class="side-nav" id="sideNav">
-    <button class="close-nav" onclick="closeNav()">×</button>
-    <a href="staff-dashboard.html">DASHBOARD</a>
-    <a href="staff-orders.html">ORDERS</a>
-    <a href="manage-items.html">MANAGE ITEMS</a>
-    <a href="staff-stats.html">STATISTICS</a>
-    <a href="staff-login.html" onclick="logout()">LOGOUT</a>
-  </div>
-  <div class="overlay" id="overlay" onclick="closeNav()"></div>
+<body>
+  <!-- SHARED NAVBAR -->
+  <div id="navbar-placeholder"></div>
 
   <div class="container">
     <h2 class="section-title">PENDING / PREPARING</h2>
@@ -55,15 +39,15 @@
     <div id="staff-orders-cancelled" class="grid"></div>
   </div>
 
-  <footer>
-    © 2025 BVB CANTEEN - STAFF PORTAL
-  </footer>
+  <!-- SHARED FOOTER -->
+  <div id="footer-placeholder"></div>
 
-  <script src="main.js"></script>
+  <script src="/js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       initStaffOrdersPage();
     });
   </script>
 </body>
+
 </html>

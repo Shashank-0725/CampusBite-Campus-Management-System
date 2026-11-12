@@ -2,13 +2,19 @@
 const { verifyToken } = require('../utils/jwt.util');
 
 function authMiddleware(req, res, next) {
+  let token = null;
   const authHeader = req.headers.authorization || '';
 
-  if (!authHeader.startsWith('Bearer ')) {
+  if (authHeader.startsWith('Bearer ')) {
+    token = authHeader.split(' ')[1];
+  } else if (req.query && req.query.token) {
+    token = req.query.token;
+  }
+
+  if (!token) {
     return res.status(401).json({ message: 'No token provided' });
   }
 
-  const token = authHeader.split(' ')[1];
 
   try {
     const decoded = verifyToken(token);

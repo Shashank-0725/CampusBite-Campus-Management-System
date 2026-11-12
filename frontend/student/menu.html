@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusBite - MENU</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+
+  <style>
+    /* Tabs row */
+    .menu-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tab-btn {
+      border: 1px solid white;
+      background: var(--white);
+      color: var(--primary-color);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      transition: all 0.15s ease;
+      color: white;
+    }
+
+    .tab-btn:hover {
+      background: rgba(31, 41, 51, 0.06);
+    }
+
+    .tab-btn.active {
+      background: var(--primary-color);
+      color: var(--white);
+    }
+
+    /* Category sections */
+    .menu-category {
+      display: none;
+    }
+
+    .menu-category.active {
+      display: block;
+    }
+
+    .menu-category+.menu-category {
+      margin-top: 20px;
+    }
+
+    .menu-page {
+      padding-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- SHARED NAVBAR -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- CONTENT -->
+  <div class="container menu-page">
+    <h2 class="section-title">OUR MENU</h2>
+
+    <!-- TABS -->
+    <div class="menu-tabs">
+      <button class="tab-btn active" onclick="showCategory('snacks')">SNACKS</button>
+      <button class="tab-btn" onclick="showCategory('meals')">MEALS</button>
+      <button class="tab-btn" onclick="showCategory('refreshments')">REFRESHMENTS</button>
+      <button class="tab-btn" onclick="showCategory('sweets')">SWEETS</button>
+    </div>
+
+    <!-- SNACKS -->
+    <section id="snacks" class="menu-category active">
+      <div class="grid">
+        <!-- JS will inject cards here -->
+      </div>
+    </section>
+
+    <!-- MEALS -->
+    <section id="meals" class="menu-category">
+      <div class="grid">
+        <!-- JS will inject cards here -->
+      </div>
+    </section>
+
+    <!-- REFRESHMENTS -->
+    <section id="refreshments" class="menu-category">
+      <div class="grid">
+        <!-- JS will inject cards here -->
+      </div>
+    </section>
+
+    <!-- SWEETS -->
+    <section id="sweets" class="menu-category">
+      <div class="grid">
+        <!-- JS will inject cards here -->
+      </div>
+    </section>
+  </div>
+
+  <!-- SHARED FOOTER -->
+  <div id="footer-placeholder"></div>
+
+  <script src="/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initMenuPage();
+    });
+  </script>
+</body>
+
+</html>
