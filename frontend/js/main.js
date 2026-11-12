@@ -2,6 +2,20 @@ const API_BASE = window.location.hostname === 'localhost' || window.location.hos
   ? 'http://localhost:5000'
   : window.location.origin;
 
+function togglePassword(id, button) {
+  const input = document.getElementById(id);
+  const icon = button.querySelector('i');
+
+  if (input.type === 'password') {
+    input.type = 'text';
+    icon.classList.replace('fa-eye', 'fa-eye-slash');
+  } else {
+    input.type = 'password';
+    icon.classList.replace('fa-eye-slash', 'fa-eye');
+  }
+}
+
+
 /* ================= SHARED LAYOUT OF HTML ================= */
 function renderSharedLayout() {
   const navPlaceholder = document.getElementById('navbar-placeholder');

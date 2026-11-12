@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  <a href="https://lhc-canteen.onrender.com"><strong>🌐 Live Demo</strong></a> ·
+  <a href="https://campusbite-g03i.onrender.com"><strong>🌐 Live Demo</strong></a> ·
 </p>
 
 ---
