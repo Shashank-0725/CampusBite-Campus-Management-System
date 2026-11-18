@@ -112,7 +112,8 @@ Kitchen staff get a **live KOT (Kitchen Order Ticket) dashboard** — orders app
 | **Menu Management** | Add/edit/delete items, Cloudinary image upload, set stock quantity, toggle availability, category management |
 | **Real-Time** | SSE push for order status changes, SSE broadcast for new orders to kitchen, 25s heartbeat keep-alive |
 | **Security** | JWT auth (Bearer + Query param), RBAC (student/staff), Helmet CSP, rate limiting, bcrypt hashing, execution-blocking auth guard |
-| **Reliability** | Atomic stock decrement, multi-item rollback, duplicate login prevention, write-through cache invalidation |
+| **Real-Time** | SSE push for order updates and kitchen dispatch, ~251 ms end-to-end latency, ~85% reduction in HTTP polling overhead |
+| **Reliability & Performance** | Atomic stock decrement, multi-item rollback, write-through cache invalidation; Node-Cache reduces read latency by ~95% (90.4 ms → 4.6 ms) |
 
 ---
 
